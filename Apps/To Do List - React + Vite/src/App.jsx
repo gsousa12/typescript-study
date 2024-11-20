@@ -40,13 +40,10 @@ function App() {
 
   const removeTodo = (id) => {
     const newTodos = [...todos];
-    console.log(newTodos);
     const filteredTodos = newTodos.filter((todo) =>
       todo.id !== id ? todo : null
     );
-    console.log(filteredTodos);
     setTodos(filteredTodos);
-    console.log(setTodos);
   };
 
   return (
