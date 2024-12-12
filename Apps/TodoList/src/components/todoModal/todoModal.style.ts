@@ -17,10 +17,6 @@ export const customStyle = {
     width: "90%",
     margin: "0 auto",
     display: "flex",
-<<<<<<< HEAD
-=======
-    justifyContent: "center",
->>>>>>> 3614df627b28156636ec815351fc9f73838d2679
     alignItems: "center",
     padding: "2rem",
     borderRadius: "8px",
@@ -43,7 +39,6 @@ export const customStyle = {
     transition: "0.3s ease all",
     zIndex: "-1",
   },
-<<<<<<< HEAD
   form: {
     // border: "1px solid black",
   },
@@ -58,6 +53,4 @@ export const customStyle = {
     marginTop: "2rem",
     gap: "1rem",
   },
-=======
->>>>>>> 3614df627b28156636ec815351fc9f73838d2679
 };

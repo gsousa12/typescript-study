@@ -1,8 +1,4 @@
 import { FormControl, MenuItem, Select } from "@mui/material";
-<<<<<<< HEAD
-=======
-import React from "react";
->>>>>>> 3614df627b28156636ec815351fc9f73838d2679
 
 function SelectFilter() {
   return (
