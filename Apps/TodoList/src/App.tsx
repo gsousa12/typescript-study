@@ -3,6 +3,7 @@ import PageHeader from "./components/pageHeader/PageHeader";
 import AppHeader from "./components/appHeader/AppHeader";
 import { customStyle } from "./app.style";
 import AppContent from "./components/appContent/AppContent";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <AppHeader />
         <AppContent />
       </Box>
+      <Toaster />
     </Box>
   );
 }

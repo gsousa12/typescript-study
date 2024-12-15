@@ -10,32 +10,40 @@ import { customStyle } from "./todoModal.style";
 import { MdOutlineClose } from "react-icons/md";
 import CustomButton from "../customButton/CustomButton";
 import { TodoModalProps } from "../../utils/interfaces";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { statusTypeEnum } from "../../utils/enums";
+import { useDispatch } from "react-redux";
+import { addTodo } from "../../redux/slices/todoSlice";
+import { v4 as uuidv4 } from "uuid";
+import { toast } from "react-hot-toast";
 
 function TodoModal({ ...props }: TodoModalProps) {
   const [taskName, setTaskName] = useState("");
   const [todoStatus, setTodoStatus] = useState<statusTypeEnum>(
     statusTypeEnum.incomplete
   );
-  const [isButtonActive, setIsButtonActive] = useState(true);
-
-  // useEffect(() => {
-  //   if (taskName !== "" && taskName !== undefined && todoStatus !== undefined) {
-  //     setIsButtonActive(true);
-  //   }
-  // }, [todoStatus, taskName, isButtonActive]);
+  const dispatch = useDispatch();
 
   const handleCloseModal = () => {
     props.setHandleModalOpen(false);
-    setIsButtonActive(false);
     setTaskName("");
     setTodoStatus(statusTypeEnum.incomplete);
   };
 
   const handleSummit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    console.log({ taskName, todoStatus });
+    if (taskName && todoStatus) {
+      dispatch(
+        addTodo({
+          id: uuidv4(),
+          taskName,
+          todoStatus,
+          time: new Date().toLocaleString(),
+        })
+      );
+      toast.success("Task added successfully");
+      setTaskName("");
+    } else toast.error("Please fill the task name input");
   };
 
   // console.log(todoStatus);
